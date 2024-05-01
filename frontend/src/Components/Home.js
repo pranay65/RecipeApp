@@ -54,6 +54,7 @@ function Home(){
     const isSaved = (id)=>{
         for (let i = 0; i < savedRecipes.length; i++) {
             const element = savedRecipes[i];
+            // eslint-disable-next-line
             if(id==element.recipeID){
                 return true;
             }        
@@ -66,15 +67,19 @@ function Home(){
            <h2 className="subtitle">All Recipes</h2>
            <ul>
             {
+                recipes.length === 0 ?
+                <div><h3 className="blank-text">No Recipes Found!</h3></div>
+                :
                 recipes.map((recipe) => (
                     <li className="recipe-card" key={recipe.recipeID}>
-                        <img src={recipe.imgURL} />
+                        <img src={recipe.imgURL} alt={recipe.name}/>
                         <h3>{recipe.name}</h3>
                         <div className="inst">
                             <h4>Instructions</h4>
                             <p>{recipe.instructions}</p>
                         </div>
                         <h4>Time Required: {recipe.time}</h4>
+                        <h4>Uploaded by: {recipe.username}</h4>
                         <button type="button" className="red-btn" onClick={()=>{saveRecipe(recipe.recipeID)}} disabled={isSaved(recipe.recipeID)}> {isSaved(recipe.recipeID) ? "Saved" : "Save"} </button>
                     </li>
                 ))

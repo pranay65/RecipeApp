@@ -271,6 +271,14 @@ h3:hover{
     text-align: center;
 }
 
+.blank-text{
+    margin: 50px;
+    color:gray;
+}
+
+.blank-text:hover{
+    color: darkgray;
+}
 
 img{
     width: 300px;

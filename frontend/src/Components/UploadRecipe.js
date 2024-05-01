@@ -8,7 +8,7 @@ function Upload(){
     const navigate = useNavigate();
     const [recipe, setRecipe] = useState({
         recipeID: "",
-        username: "test",
+        username: user,
         name: "",
         ingredients: [],
         instructions: "",
@@ -19,6 +19,7 @@ function Upload(){
     const handleChange = (event) => {
         const { name, value } = event.target;
         setRecipe({...recipe, [name]: value});
+        // eslint-disable-next-line
         if(name=='time'){
             setRecipe({...recipe, time: value+" minutes"});
         }
