@@ -7,7 +7,7 @@ const userApp = require('./APIs/users');
 const recipesApp = require('./APIs/recipes');
 const mongoClient = require('mongodb').MongoClient;
 require('dotenv').config();
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 app.use(exp.json());
 app.use(cors());
 
